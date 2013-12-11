@@ -1,0 +1,52 @@
+"""
+This module contains all the necessary configuration.
+"""
+
+############################################################
+
+RELP_FILES = "../data/corpus/1[0-3]/terms.relp"
+
+WORK_DIR = '../data/wd'
+
+OUTPUT_FILE = "wikipedia"
+
+SAVE_FREQ = 2
+
+############################################################
+# Modifiers:
+
+#STOP_WORDS = '../../../resources/stop_words_long.txt'
+STOP_WORDS = ''
+EN2US = '../resources/EN2US.csv'
+MODIFIERS = ('number', 'sstrip', 'lower', 'hyphenisation', 'lemmatization', 'en2us',)
+
+############################################################
+# Equivalences
+
+EQUIVALENCES_RELATIONS = {
+        ('V_PASS', 'SUBJ', 'N'):('V', 'OBJ', 'N'),
+        }
+
+############################################################
+# FILTERS
+
+# See modifers above
+WORD1 = ''
+WORD2 = ''
+
+COMBINATIONS = {('N', 'COMP_OF', 'N'), ('V', 'OBJ', 'N'), ('V_PASS', 'SUBJ', 'N')}
+
+############################################################
+# Functions allowed in rows (NOT BOTH AT THE SAME TIME):
+PREDICATES = True
+ARGUMENTS = False
+
+CONF = '%s : %s' %('PREDICATES' if PREDICATES else 'ARGUMENTS', ' and '.join(' - '.join(t) for t in COMBINATIONS))
+
+############################################################
+# integer:
+# NEGATIVE = ascending
+# 0 = all
+# POSITIVE = descending
+
+POPULAR = 0

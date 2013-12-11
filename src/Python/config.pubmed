@@ -1,0 +1,52 @@
+'''
+This module contains all the necessary configuration.
+'''
+
+############################################################
+
+#RELP_FILES = "../../../data/datasets/wikipedia/corpus/*/terms.relp"
+RELP_FILES = "../../../data/datasets/pubmed/corpus/*/heads.relp"
+
+WORK_DIR = '../../../data/datasets/pubmed/wd_nominalization_full'
+
+OUTPUT_FILE = "pubmed"
+
+SAVE_FREQ = 100
+
+############################################################
+# Modifiers:
+
+#STOP_WORDS = '../../../resources/stop_words_long.txt'
+EN2US = '../../../resources/EN2US.csv'
+MODIFIERS = ('number', 'sstrip', 'lower', 'hyphenisation', 'lemmatization', 'en2us',)
+
+
+############################################################
+# Equivalences
+
+EQUIVALENCES_RELATIONS = {('V_PASS', 'SUBJ', 'N'):('V', 'OBJ', 'N'),}
+
+############################################################
+# FILTERS
+
+# See modifers above
+#WORD1 = '../../../data/datasets/wikipedia/nomlex.terms'
+WORD1 = ''
+WORD2 = ''
+
+COMBINATIONS = set((('N', 'COMP_OF', 'N'), ('V', 'OBJ', 'N'), ('V_PASS', 'SUBJ', 'N')))
+
+############################################################
+# Functions allowed in rows (NOT BOTH AT THE SAME TIME):
+PREDICATES = True
+ARGUMENTS = False
+
+CONF = '%s : %s' %('PREDICATES' if PREDICATES else 'ARGUMENTS', ' and '.join(' - '.join(t) for t in COMBINATIONS))
+
+############################################################
+# integer:
+# NEGATIVE = ascending
+# 0 = all
+# POSITIVE = descending
+
+POPULAR = 0
